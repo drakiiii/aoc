@@ -51,6 +51,7 @@ def part1(file):
 
     print(count)
 
+
 def part2(file):    
     with open(file) as f:
         lines = [line.rstrip() for line in f]

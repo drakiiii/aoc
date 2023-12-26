@@ -1,5 +1,3 @@
-import re
-
 def part1(file):    
 
     with open(file) as f:
@@ -48,6 +46,7 @@ def part1(file):
                     break
 
     print(total)
+
 
 def part2(file):    
 
@@ -104,5 +103,3 @@ def part2(file):
                 total += (nums[0] * nums[1])
     
     print(total)
-
-part2('input.txt')
