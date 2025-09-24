@@ -2,35 +2,57 @@ def part1(file):
     with open(file) as f:
         lines = [line.rstrip() for line in f]
 
-    def checkList(lst):
-        ele = lst[0]
-        chk = True
+    def find_diff(arr):
+       return [arr[i + 1] - arr[i] for i in range(len(arr) - 1)]
+    
 
-        for item in lst:
-            if ele != item:
-                chk = False
-                break
-
-        if chk == True:
-            return True
-        else:
-            return False
- 
-
-    def find_diff(line):
-        while checkList(line) == False:
-            new_line = []
-            for i in range(0, len(line) - 1):
-                diff = line[i + 1] - line[i]
-                new_line.append(diff)
-            line = [[a for a in line], [b for b in new_line]]
-            new_line
-        return line
-
-    for line in lines[0:1]:
-        line = list(map(int, line.split(" ")))
-        while checkList(line) is False:
-            line = find_diff(line)
+    def extrapolate(hist):
+        layers = [hist]
         
+        while not all([x == 0 for x in layers[-1]]):
+            layers.append(find_diff(layers[-1]))
 
-part1('input.txt')
+        layers[-1].append(0)
+        for i in range(len(layers) - 2, -1, -1):
+            layers[i].append(layers[i][-1] + layers[i + 1][-1])
+
+        return layers[0][-1]
+    
+    
+    ans = []
+    for line in lines:
+        arr = list(map(int, line.split(" ")))
+        ans.append(extrapolate(arr))
+
+    print(sum(ans))
+
+
+def part2(file):    
+    with open(file) as f:
+        lines = [line.rstrip() for line in f]
+
+    def find_diff(arr):
+       return [arr[i + 1] - arr[i] for i in range(len(arr) - 1)]
+    
+
+    def extrapolate(hist):
+        layers = [hist]
+        
+        while not all([x == 0 for x in layers[-1]]):
+            layers.append(find_diff(layers[-1]))
+
+        layers[-1].append(0)
+        for i in range(len(layers) - 2, -1, -1):
+            layers[i].append(layers[i][-1] + layers[i + 1][-1])
+
+        return layers[0][-1]
+    
+    
+    ans = []
+    for line in lines:
+        arr = list(map(int, line.split(" ")[::-1]))
+        ans.append(extrapolate(arr))
+
+    print(sum(ans))
+
+part2('input.txt')
