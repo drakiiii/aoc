@@ -1,2 +1,13 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-*
+# =============================================================================
+# GLOBAL IGNORE RULES
+# =============================================================================
+# This file ensures that no sensitive or machine-specific files are committed.
+# Update as needed when new tooling or secrets are introduced.
+# =============================================================================
+
+# macOS metadata
+.DS_Store
+
+# Virtual environments (if created locally)
+venv/
+.env/
