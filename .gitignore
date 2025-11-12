@@ -10,4 +10,4 @@
 
 # Virtual environments (if created locally)
 venv/
-.env/
+.venv/
