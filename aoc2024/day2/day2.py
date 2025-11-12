@@ -61,8 +61,5 @@ def part2(file):
     
     print(safe_count)
 
-
-
-# Uncomment to test:
-# part1("/Users/draki/Projects/aoc/aoc2024/day2/input.txt")
-part2("/Users/draki/Projects/aoc/aoc2024/day2/input.txt")
+if __name__ == "__main__":
+    part1("/Users/draki/Projects/aoc/aoc2024/day2/input.txt")

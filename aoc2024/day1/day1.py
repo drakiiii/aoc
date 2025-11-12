@@ -48,3 +48,5 @@ def part2(file):
     print(similarity_score)
 
 
+if __name__ == "__main__":
+    part2("/Users/draki/Projects/aoc/aoc2024/day1/input.txt")
