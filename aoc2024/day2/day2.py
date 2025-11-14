@@ -17,6 +17,7 @@ def is_safe(int_list):
     return all(diff > 0 for diff in diff_list) or all(diff < 0 for diff in diff_list)
 
 def part1(file):
+    """Count the reports that are already safe."""
     with open(file) as f:
         data = f.read()
         lines = data.strip().split("\n")
@@ -33,6 +34,7 @@ def part1(file):
     print(safe_count)
 
 def part2(file):
+    """Count reports that are safe or can become safe by removing one value."""
     with open(file) as f:
         data = f.read()
         lines = data.strip().split("\n")
@@ -61,5 +63,3 @@ def part2(file):
     
     print(safe_count)
 
-if __name__ == "__main__":
-    part1("/Users/draki/Projects/aoc/aoc2024/day2/input.txt")

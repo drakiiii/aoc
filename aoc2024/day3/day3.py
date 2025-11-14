@@ -1,6 +1,7 @@
 import re
 
 def part1(file):
+    """Multiply every pair found in mul(X,Y) instructions."""
     with open(file) as f:
         data = f.read()
         text = data.strip()
@@ -13,9 +14,10 @@ def part1(file):
         result = int(a) * int(b)
         total += result
     print(total)
-    return total
+
 
 def part2(file):
+    """Process the enabled/disabled instructions and sum valid products."""
     with open(file) as f:
         data = f.read()
         text = data.strip()
@@ -54,7 +56,3 @@ def part2(file):
             total += result
     
     print(total)
-    return total
-
-if __name__ == "__main__":
-    part2("input.txt")

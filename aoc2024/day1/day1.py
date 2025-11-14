@@ -1,8 +1,9 @@
 def part1(file):
+    """Compute total distance between sorted lists of location IDs."""
     with open(file) as f:
         data = f.read()
         lines = data.strip().split("\n")
-
+    # Separate values into the left and right lists before sorting.
     left_list = []
     right_list = []
     distance_list = []
@@ -15,15 +16,18 @@ def part1(file):
     right_list.sort()
 
     for i in range(0, len(left_list)):
+        # Pairwise absolute differences after sorting give the distances.
         distance_list.append(abs(left_list[i] - right_list[i]))
 
     print(sum(distance_list))
 
 def part2(file):
+    """Compute similarity score using counts of right-list occurrences."""
     with open(file) as f:
         data = f.read()
         lines = data.strip().split("\n")
     
+    # Build the lists of identifiers for repeated counting later.
     left_list = []
     right_list = []
 
@@ -43,10 +47,7 @@ def part2(file):
     similarity_score = 0
 
     for num, count in count_list:
+        # Each occurrence contributes its value multiplied by the count on the right.
         similarity_score += num * count
 
     print(similarity_score)
-
-
-if __name__ == "__main__":
-    part2("/Users/draki/Projects/aoc/aoc2024/day1/input.txt")

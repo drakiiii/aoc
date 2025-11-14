@@ -1,4 +1,5 @@
 def part1(file):
+    """Count occurrences of the word XMAS in every straight-line direction."""
     with open(file) as f:
         data = f.read()
         lines = data.strip().split("\n")
@@ -41,6 +42,7 @@ def part1(file):
     print(total)
 
 def part2(file):
+    """Count occurrences of the X-shaped MAS pattern centered on 'A'."""
     with open(file) as f:
         data = f.read()
         lines = data.strip().split("\n")
@@ -82,6 +84,3 @@ def part2(file):
         total += match_count
 
     print(total)
-
-if __name__ == "__main__":
-    part2("/Users/draki/Projects/aoc/aoc2024/day4/input.txt")
